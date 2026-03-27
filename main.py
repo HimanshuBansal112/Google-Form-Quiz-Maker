@@ -135,7 +135,12 @@ def add_multi_choice(question: str, options:list[str], correct_options_index:lis
 								"correctAnswers": { 
 									"answers": [{"value": options[correct]} for correct in correct_options_index] 
 								},
-								"generalFeedback": { "text": general_explanation }
+								"whenRight": { 
+									"text": general_explanation
+								},
+								"whenWrong": { 
+									"text": general_explanation
+								}
 							},
 							"choiceQuestion": {
 								"type": "CHECKBOX",
