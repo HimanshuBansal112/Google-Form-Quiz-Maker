@@ -3,6 +3,7 @@
 1. Install `uv` by running `pip install uv` in Command Prompt.
 2. Go to the project folder
 3. Run
+   
    ```bash
    uv venv
    .venv\Scripts\activate
@@ -29,13 +30,14 @@ You can connect any client to this tool either programmatically or using AI apps
    }
    ```
    You can get `path_to_uv` using `where uv` in cmd.
+   
    You have to paste parent directory of `tools.py`.
 
-3. Restart Claude Desktop
+4. Restart Claude Desktop
 
 ## How to setup for create.py
 1. Get JSON file from google cloud console for google forms.
 2. Paste it into project as `credentials.json`.
 3. Assuming AI has processed using `tools.py` and created `form.json`, run `create.py` with `uv`.
 
-Optionally, You can also shuffle questions before `create.py` by running `shuffle.py` with `uv`.
+   Optionally, You can also shuffle questions before `create.py` by running `shuffle.py` with `uv`.
