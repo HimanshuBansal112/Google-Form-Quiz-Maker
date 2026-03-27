@@ -39,6 +39,16 @@ def load():
     return data
 
 @mcp.tool(
+    name="instructions",
+    description="Instructions to avoid past mistakes."
+)
+def instructions() -> str:
+    return """
+    Do not include any form of question numbering/labeling,
+    such as Q1, Q-1, Q, or similar formats.
+    """
+
+@mcp.tool(
     name="check_remaining",
     description="Returns how many MCQ, multi-choice, and fill-in-the-blank questions can still be added."
 )
