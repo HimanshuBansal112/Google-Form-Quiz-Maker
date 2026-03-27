@@ -5,7 +5,7 @@
 3. Run
 ```
 uv venv
-source .venv/bin/activate
+.venv\Scripts\activate
 uv pip install -r requirements.txt
 ```
 
