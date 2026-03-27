@@ -11,9 +11,8 @@ uv pip install -r requirements.txt
 
 ## For AI connection
 You can connect any client to this tool, either by programming or using AI Apps.
-For **Claude Desktop** on **Windows**:
 
-## Add to Claude
+## How to add to Claude Desktop on Windows
 1. Open `claude_desktop_config.json`
 2. Add this configuration:
 ```json
