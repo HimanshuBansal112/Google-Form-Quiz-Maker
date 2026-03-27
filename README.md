@@ -29,8 +29,9 @@ For **Claude Desktop** on **Windows**:
   }
 }
 ```
-You can get `path_to_uv` using where uv in cmd
-You have to past parent directory of `tools.py`
+You can get `path_to_uv` using `where uv` in cmd.
+You have to past parent directory of `tools.py`.
+
 3. Restart Claude Desktop
 
 ## How to setup for create.py
