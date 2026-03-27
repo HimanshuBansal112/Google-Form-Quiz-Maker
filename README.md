@@ -36,6 +36,6 @@ You have to past parent directory of `tools.py`.
 ## How to setup for create.py
 1. Get `json` file from google cloud console for google forms.
 2. Paste it into project as `credentials.json`.
-3. Assuming claude has processed and created `form.json`, run `create.py` with `uv`.
+3. Assuming AI has processed using `tools.py` and created `form.json`, run `create.py` with `uv`.
 
 Optionally, You can also shuffle questions before `create.py` by running `shuffle.py` with `uv`.
