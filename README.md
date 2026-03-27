@@ -3,8 +3,7 @@
 1. Install `uv` using `pip install uv` in cmd.
 2. Go to project folder
 3. Run
-```
-uv venv
+```uv venv
 .venv\Scripts\activate
 uv pip install -r requirements.txt
 ```
@@ -25,7 +24,7 @@ For **Claude Desktop** on **Windows**:
         "tools.py"
       ]
     }
-  }```
+  } ```
 You can get `path_to_uv` using where uv in cmd
 You have to past parent directory of `tools.py`
 3. Restart Claude Desktop
