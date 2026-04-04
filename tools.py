@@ -12,21 +12,21 @@ req_blank = 2
 
 
 def create_if_not_exist():
-    default_json = {
-        "mcq": 0,
-        "multi_choice": 0,
-        "fill_in_blank": 0,
-        "next_id": 0,
-        "data": [
-            {
-                "updateSettings": {
-                    "settings": {"quizSettings": {"isQuiz": True}},
-                    "updateMask": "quizSettings.isQuiz",
-                }
-            }
-        ],
-    }
     if not os.path.exists(file_path):
+        default_json = {
+            "mcq": 0,
+            "multi_choice": 0,
+            "fill_in_blank": 0,
+            "next_id": 0,
+            "data": [
+                {
+                    "updateSettings": {
+                        "settings": {"quizSettings": {"isQuiz": True}},
+                        "updateMask": "quizSettings.isQuiz",
+                    }
+                }
+            ],
+        }
         with open(file_path, "w") as f:
             json.dump(default_json, f, indent=2)
 
@@ -37,6 +37,7 @@ def save(data):
 
 
 def load():
+    create_if_not_exist()
     with open(file_path, "r") as f:
         data = json.load(f)
     return data
@@ -234,5 +235,4 @@ def add_blank(question: str, answers: list[str], general_explanation: str):
 
 
 if __name__ == "__main__":
-    create_if_not_exist()
     mcp.run()
