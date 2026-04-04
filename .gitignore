@@ -13,8 +13,8 @@ pyproject.toml
 uv.lock
 
 #Restricted_files
-forms_token.pickle
 .env
 
 #Junk
 *.json
+*.pickle

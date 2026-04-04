@@ -46,8 +46,12 @@ def load():
 @mcp.tool(name="instructions", description="Instructions to avoid past mistakes.")
 def instructions() -> str:
     return """
-    Do not include any form of question numbering/labeling,
+    1. Do not include any form of question numbering/labeling,
     such as Q1, Q-1, Q, or similar formats.
+    2. Title of question cannot contain newlines.
+    3. Title should be like what is the output?, what is correct?, etc. No hint, no question number in title.
+    4. You can make description empty if not needed or if redundant.
+    5. It doesn't support formatting using backtick or bold or any such. Description can have newlines.
     """
 
 
@@ -69,7 +73,8 @@ def check_remaining() -> dict:
     description="Adds a multiple choice question with exactly 4 options, one correct answer, and explanations.",
 )
 def add_mcq(
-    question: str,
+    question_title: str,
+    question_description: str,
     options: list[str],
     correct_option_index: int,
     correct_option_explanation: str,
@@ -86,16 +91,21 @@ def add_mcq(
         return "Overflow of correct option explanation!!! Size of explanation should be below 600 characters."
     if len(incorrect_option_explanation) > 600:
         return "Overflow of incorrect option explanation!!! Size of explanation should be below 600 characters."
-    if len(question) > 200:
+    if len(question_description) > 300:
         return (
-            "Overflow of question!!! Size of question should be below 200 characters."
+            "Overflow of question description!!! Size of question description should be below 300 characters."
+        )
+    if len(question_title) > 100:
+        return (
+            "Overflow of question title!!! Size of question title should be below 100 characters."
         )
 
     values = {
         "createItem": {
             "location": {"index": data["next_id"]},
             "item": {
-                "title": question,
+                "title": question_title,
+                "description": question_description,
                 "questionItem": {
                     "question": {
                         "required": True,
@@ -128,7 +138,8 @@ def add_mcq(
     description="Adds a multi-choice question with 4 options and one or more correct answers.",
 )
 def add_multi_choice(
-    question: str,
+    question_title: str,
+    question_description: str,
     options: list[str],
     correct_options_index: list[int],
     general_explanation: str,
@@ -145,16 +156,21 @@ def add_multi_choice(
             return "Invalid index! It should be 0-3."
     if len(general_explanation) > 600:
         return "Overflow of correct option general_explanation!!! Size of general_explanation should be below 600 characters."
-    if len(question) > 200:
+    if len(question_description) > 300:
         return (
-            "Overflow of question!!! Size of question should be below 200 characters."
+            "Overflow of question description!!! Size of question description should be below 300 characters."
+        )
+    if len(question_title) > 100:
+        return (
+            "Overflow of question title!!! Size of question title should be below 100 characters."
         )
 
     values = {
         "createItem": {
             "location": {"index": data["next_id"]},
             "item": {
-                "title": question,
+                "title": question_title,
+                "description": question_description,
                 "questionItem": {
                     "question": {
                         "required": True,
@@ -189,15 +205,24 @@ def add_multi_choice(
     name="add_blank",
     description="Adds a fill-in-the-blank question with similar matching correct answer and explanation.",
 )
-def add_blank(question: str, answers: list[str], general_explanation: str):
+def add_blank(
+    question_title: str,
+    question_description: str,
+    answers: list[str],
+    general_explanation: str
+):
     data = load()
     if data["fill_in_blank"] > req_blank - 1:
         return f"More than {req_blank} Fill-in Blanks are not allowed."
     if len(general_explanation) > 600:
         return "Overflow of correct option general_explanation!!! Size of general_explanation should be below 600 characters."
-    if len(question) > 200:
+    if len(question_description) > 300:
         return (
-            "Overflow of question!!! Size of question should be below 200 characters."
+            "Overflow of question description!!! Size of question description should be below 300 characters."
+        )
+    if len(question_title) > 100:
+        return (
+            "Overflow of question title!!! Size of question title should be below 100 characters."
         )
     if len(answers) == 0:
         return "Empty answer not allowed."
@@ -209,7 +234,8 @@ def add_blank(question: str, answers: list[str], general_explanation: str):
         "createItem": {
             "location": {"index": data["next_id"]},
             "item": {
-                "title": question,
+                "title": question_title,
+                "description": question_description,
                 "questionItem": {
                     "question": {
                         "required": True,
