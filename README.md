@@ -31,9 +31,9 @@ You can connect any client to this tool either programmatically or using AI apps
    ```
    You can get `path_to_uv` using `where uv` in cmd.
    
-   You have to paste parent directory of `tools.py`.
+   You have to paste parent directory of `tools.py` in `path_to_this_project`.
 
-4. Restart Claude Desktop
+3. Restart Claude Desktop
 
 ## How to setup for create.py
 1. Get JSON file from google cloud console for google forms.
