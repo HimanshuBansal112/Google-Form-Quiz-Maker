@@ -32,9 +32,26 @@ You can connect any client to this tool either programmatically or using AI apps
    ```
    You can get `path_to_uv` using `where uv` in cmd.
    
-   You have to paste parent directory of `tools.py` in `path_to_this_project`.
+   You have to paste parent directory of `tools.py` in `path_to_tools.py`.
 
 3. Restart Claude Desktop
+
+### How to add to Codex on Windows
+1. Open codex, click on settings.
+2. Go to MCP server, click on Add server.
+3. Choose STDIO, write name for MCP server.
+4. Write `uv` in "Command to launch".
+5. Add four Arguments in given order:
+   a. --directory
+   b. path_to_tools.py
+   c. run
+   d. tools.py
+6. Click on save.
+
+### How to add to Codex CLI on Windows
+1. In cmd, run `codex mcp add "quizMaker" -- uv --directory "path_to_tools.py" run tools.py`. You can replace quizMaker, with any server name you want.
+2. Now, run `codex` in cmd.
+3. You will see mcp connected.
 
 ## How to setup for create.py
 1. Get JSON file from google cloud console for google forms.
