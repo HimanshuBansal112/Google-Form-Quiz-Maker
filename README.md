@@ -38,9 +38,9 @@ You can connect any client to this tool either programmatically or using AI apps
 
 3. Restart Claude Desktop
 
-### How to add to Codex on Windows
-1. Open codex, click on settings.
-2. Go to MCP server, click on Add server.
+### How to add to ChatGPT App on Windows
+1. Open ChatGPT, click on settings.
+2. Go to Plugins, click on Add. Choose Add MCP Server.
 3. Choose STDIO, write name for MCP server.
 4. Write `uv` in "Command to launch".
 5. Add four Arguments in given order:<br>
@@ -49,6 +49,7 @@ You can connect any client to this tool either programmatically or using AI apps
    c. run<br>
    d. tools.py<br>
 7. Click on save.
+8. You can now use this MCP Server, by sending query in **Work** tab.
 
 ### How to add to Codex CLI on Windows
 1. In cmd, run `codex mcp add "quizMaker" -- uv --directory "path_to_tools.py" run tools.py`. You can replace quizMaker, with any server name you want.
