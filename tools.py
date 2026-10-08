@@ -1,9 +1,9 @@
 import os
 import json
 
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
-mcp = FastMCP(name="Making_Q_and_A_Form")
+mcp = MCPServer(name="Making_Q_and_A_Form")
 
 file_path = "form.json"
 req_mcq = 15
